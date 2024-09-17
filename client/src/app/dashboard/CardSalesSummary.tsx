@@ -19,6 +19,7 @@ const CardSalesSummary = () => {
 
   const totalValueSum =
     salesData.reduce((acc, curr) => acc + curr.totalValue, 0) || 0;
+
   const averageChangePercentage =
     salesData.reduce((acc, curr, _, array) => {
       return acc + curr.changePercentage! / array.length;
@@ -26,12 +27,10 @@ const CardSalesSummary = () => {
 
   const highestValueData = salesData.reduce((acc, curr) => {
     return acc.totalValue > curr.totalValue ? acc : curr;
-  }, salesData[0] || {}).date
-    ? new Date(
-        salesData.reduce((acc, curr) => {
-          return acc.totalValue > curr.totalValue ? acc : curr;
-        }, salesData[0] || {}).date,
-      ).toLocaleDateString("en-US", {
+  }, salesData[0] || {});
+
+  const highestValueDate = highestValueData.date
+    ? new Date(highestValueData.date).toLocaleDateString("en-US", {
         month: "numeric",
         day: "numeric",
         year: "2-digit",
@@ -69,7 +68,7 @@ const CardSalesSummary = () => {
                   })}
                   m
                 </span>
-                <span className="text-green-500">
+                <span className="text-green-500 text-sm ml-2">
                   <TrendingUp className="inline w-4 h-4 mr-1" />
                   {averageChangePercentage.toFixed(2)}%
                 </span>
@@ -81,9 +80,9 @@ const CardSalesSummary = () => {
                   setTimeframe(e.target.value);
                 }}
               >
-                <option value="daily">Daily</option>
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
+                <option value="daily">Jour</option>
+                <option value="weekly">Semaine</option>
+                <option value="monthly">Mois</option>
               </select>
             </div>
             {/* CHART */}
@@ -101,9 +100,8 @@ const CardSalesSummary = () => {
                   }}
                 />
                 <YAxis
-                  dataKey="date"
                   tickFormatter={(value) => {
-                    return `$${(value / 1000000).toFixed(0)}`;
+                    return `$${(value / 1000000).toFixed(0)}m`;
                   }}
                   tick={{ fontSize: 12, dx: -1 }}
                   tickLine={false}
@@ -113,6 +111,14 @@ const CardSalesSummary = () => {
                   formatter={(value: number) => [
                     `$${value.toLocaleString("en")}`,
                   ]}
+                  labelFormatter={(label) => {
+                    const date = new Date(label);
+                    return date.toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    });
+                  }}
                 />
                 <Bar
                   dataKey="totalValue"
@@ -131,7 +137,7 @@ const CardSalesSummary = () => {
               <p>{salesData.length || 0} days</p>
               <p className="text-sm">
                 Highest Sales Date:{" "}
-                <span className="font-bold">{highestValueData}</span>
+                <span className="font-bold">{highestValueDate}</span>
               </p>
             </div>
           </div>
