@@ -22,18 +22,18 @@ const Dashboard = () => {
       <CardPurchaseSummary />
       <CardExpenseSummary />
       <StatCard
-        title="Customer & Expenses"
+        title="Clients & Dépenses"
         primaryIcon={<Package className="text-blue-600 w-6 h-6" />}
         dateRange="22 - 29 Février 2020"
         details={[
           {
-            title: "Customer Growth",
+            title: "Croissance Client",
             amount: "175.00",
             changePercentage: 131,
             IconComponent: TrendingUp,
           },
           {
-            title: "Expenses",
+            title: "Dépenses",
             amount: "10.00",
             changePercentage: -56,
             IconComponent: TrendingDown,
@@ -41,18 +41,18 @@ const Dashboard = () => {
         ]}
       />
       <StatCard
-        title="Dues & Pending Orders"
+        title="Echéances & Commandes en attente"
         primaryIcon={<CheckCircle className="text-blue-600 w-6 h-6" />}
         dateRange="22 - 29 October 2023"
         details={[
           {
-            title: "Dues",
+            title: "Echéances",
             amount: "250.00",
             changePercentage: 131,
             IconComponent: TrendingUp,
           },
           {
-            title: "Pending Orders",
+            title: "Commandes en attente",
             amount: "147",
             changePercentage: -56,
             IconComponent: TrendingDown,
@@ -60,18 +60,18 @@ const Dashboard = () => {
         ]}
       />
       <StatCard
-        title="Sales & Discount"
+        title="Ventes et remises"
         primaryIcon={<Tag className="text-blue-600 w-6 h-6" />}
         dateRange="22 - 29 October 2023"
         details={[
           {
-            title: "Sales",
+            title: "Ventes",
             amount: "1000.00",
             changePercentage: 20,
             IconComponent: TrendingUp,
           },
           {
-            title: "Discount",
+            title: "Remises",
             amount: "200.00",
             changePercentage: -10,
             IconComponent: TrendingDown,

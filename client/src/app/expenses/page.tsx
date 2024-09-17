@@ -78,13 +78,13 @@ const Expenses = () => {
   };
 
   if (isLoading) {
-    return <div className="py-4">Loading...</div>;
+    return <div className="py-4">Chargement en cours...</div>;
   }
 
   if (isError || !expensesData) {
     return (
       <div className="text-center text-red-500 py-4">
-        Failed to fetch expenses
+        Echec lors du chargement des dépenses
       </div>
     );
   }
@@ -94,22 +94,20 @@ const Expenses = () => {
       {/* HEADER */}
       <div className="mb-5">
         <Header name="Expenses" />
-        <p className="text-sm text-gray-500">
-          A visual representation of expenses over time.
-        </p>
+        <p className="text-sm text-gray-500">Graphique des dépenses</p>
       </div>
 
       {/* FILTERS */}
       <div className="flex flex-col md:flex-row justify-between gap-4">
         <div className="w-full md:w-1/3 bg-white shadow rounded-lg p-6">
           <h3 className="text-lg font-semibold mb-4">
-            Filter by Category and Date
+            Filtrer par Categorie et Date
           </h3>
           <div className="space-y-4">
             {/* CATEGORY */}
             <div>
               <label htmlFor="category" className={classNames.label}>
-                Category
+                Categorie
               </label>
               <select
                 id="category"
@@ -118,16 +116,16 @@ const Expenses = () => {
                 defaultValue="All"
                 onChange={(e) => setSelectedCategory(e.target.value)}
               >
-                <option>All</option>
-                <option>Office</option>
-                <option>Professional</option>
-                <option>Salaries</option>
+                <option>Tout</option>
+                <option>Bureau</option>
+                <option>Professionnel</option>
+                <option>Salaires</option>
               </select>
             </div>
             {/* START DATE */}
             <div>
               <label htmlFor="start-date" className={classNames.label}>
-                Start Date
+                Date de début
               </label>
               <input
                 type="date"
@@ -140,7 +138,7 @@ const Expenses = () => {
             {/* END DATE */}
             <div>
               <label htmlFor="end-date" className={classNames.label}>
-                End Date
+                Date de fin
               </label>
               <input
                 type="date"

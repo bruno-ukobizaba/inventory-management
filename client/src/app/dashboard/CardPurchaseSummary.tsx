@@ -20,20 +20,20 @@ const CardPurchaseSummary = () => {
   return (
     <div className="flex flex-col justify-between row-span-2 xl:row-span-3 col-span-1 md:col-span-2 xl:col-span-1 bg-white shadow-md rounded-2xl">
       {isLoading ? (
-        <div className="m-5">Loading...</div>
+        <div className="m-5">Chargement en cours...</div>
       ) : (
         <>
           {/* HEADER */}
           <div>
             <h2 className="text-lg font-semibold mb-2 px-7 pt-5">
-              Purchase Summary
+              Synthèse des achats
             </h2>
             <hr />
           </div>
           {/* BODY */}
           <div>
             <div className="mb-4 mt-7 px-7">
-              <p className="text-xs text-gray-400">Purchased</p>
+              <p className="text-xs text-gray-400">Achats</p>
               <div className="flex items-center">
                 <p className="text-2xl font-bold">
                   {lastDataPoint

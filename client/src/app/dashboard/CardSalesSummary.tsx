@@ -38,19 +38,19 @@ const CardSalesSummary = () => {
     : "N/A";
 
   if (isError) {
-    return <div className="m-5">Failed to fetch data</div>;
+    return <div className="m-5">Echec lors du chargement des données</div>;
   }
 
   return (
     <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl flex flex-col justify-between">
       {isLoading ? (
-        <div className="m-5">Loading...</div>
+        <div className="m-5">Chargement en cours...</div>
       ) : (
         <>
           {/* HEADER */}
           <div>
             <h2 className="text-lg font-semibold mb-2 px-7 pt-5">
-              Sales Summary
+              Récapitulatif des ventes
             </h2>
             <hr />
           </div>
@@ -136,7 +136,7 @@ const CardSalesSummary = () => {
             <div className="flex justify-between items-center mt-6 text-sm px-7 mb-4">
               <p>{salesData.length || 0} days</p>
               <p className="text-sm">
-                Highest Sales Date:{" "}
+                Date des ventes les plus élevées :{" "}
                 <span className="font-bold">{highestValueDate}</span>
               </p>
             </div>

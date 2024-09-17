@@ -32,7 +32,7 @@ const Settings = () => {
       <Header name="Paramètres utilisateurs" />
       <div className="shadow-md overflow-x-auto mt-5">
         <table className="min-w-full bg-white rounded-lg">
-          <thead className="text-white bg-gray-800">
+          {/* <thead className="text-white bg-gray-800">
             <tr>
               <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
                 Paramètre
@@ -41,7 +41,7 @@ const Settings = () => {
                 Valeur
               </th>
             </tr>
-          </thead>
+          </thead> */}
           <tbody>
             {userSettings.map((settings, index) => (
               <tr className="hover:bg-blue-50" key={settings.label}>

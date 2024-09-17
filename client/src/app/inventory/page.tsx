@@ -7,24 +7,24 @@ import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
 const columns: GridColDef[] = [
   { field: "productId", headerClassName: "ID", width: 90 },
-  { field: "name", headerName: "Product Name", width: 200 },
+  { field: "name", headerName: "Nom du Produit", width: 200 },
   {
     field: "price",
-    headerName: "Price",
+    headerName: "Prix",
     width: 110,
     type: "number",
     valueGetter: (value, row) => `$${row.price}`,
   },
   {
     field: "rating",
-    headerName: "Rating",
+    headerName: "Note",
     width: 110,
     type: "number",
     valueGetter: (value, row) => (row.rating ? row.rating : "N/A"),
   },
   {
     field: "stockQuantity",
-    headerName: "Stock Quantity",
+    headerName: "Quantité en stock",
     width: 150,
     type: "number",
   },
@@ -39,7 +39,7 @@ const Inventory = () => {
 
   if (isError || !products) {
     <div className="text-center text-red-500">
-      Echec du chargement des produits.
+      Echec lors du chargement des produits.
     </div>;
   }
 

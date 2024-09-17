@@ -10,11 +10,11 @@ const CardPopularProducts = () => {
   return (
     <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl pb-16">
       {isLoading ? (
-        <div className="m-5">Loading...</div>
+        <div className="m-5">Chargement en cours...</div>
       ) : (
         <>
           <h2 className="text-lg font-semibold px-7 pt-5 pb-2">
-            Popular Products
+            Produits Populaires
           </h2>
           <hr />
           <div className="overflow-auto h-full">
@@ -48,7 +48,7 @@ const CardPopularProducts = () => {
                   <button className="p-2 rounded-full bg-blue-100 text-blue-600 mr-2">
                     <ShoppingBag className="w-4 h-4" />
                   </button>
-                  {Math.round(product.stockQuantity / 1000)}k Sold
+                  {Math.round(product.stockQuantity / 1000)}k Ventes
                 </div>
               </div>
             ))}
